@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --color-sgx-yellow: #fdcc0d;
+  --color-sgx-neon: #e3ff00;
+  --color-sgx-blue: #32527b;
+  --color-sgx-copper: #b87333;
+  --color-ink: #0a0a0a;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0a0a;
+  color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Frosted panel used by every floating surface. */
+.glass {
+  background: rgb(18 18 20 / 0.72);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.04) inset,
+    0 20px 40px -16px rgb(0 0 0 / 0.7);
+}
+
+/* Popovers sit over bright paint, so they need more opacity to stay readable. */
+.glass-strong {
+  background: rgb(16 16 18 / 0.94);
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px #0a0a0a, 0 0 0 4px var(--color-sgx-yellow);
+}
+
+/* Range slider styled to the brand. */
+input[type='range'].sgx-range {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type='range'].sgx-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color-sgx-yellow) var(--fill), rgb(255 255 255 / 0.12) var(--fill));
+}
+input[type='range'].sgx-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color-sgx-yellow) var(--fill), rgb(255 255 255 / 0.12) var(--fill));
+}
+input[type='range'].sgx-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border-radius: 999px;
+  background: #f5f5f5;
+  border: 3px solid var(--color-sgx-yellow);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.5);
+}
+input[type='range'].sgx-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #f5f5f5;
+  border: 3px solid var(--color-sgx-yellow);
+}
+input[type='range'].sgx-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgb(253 204 13 / 0.35);
+}
+
+.react-colorful {
+  width: 100% !important;
+  height: 168px !important;
+}
+.react-colorful__saturation {
+  border-radius: 12px 12px 0 0 !important;
+}
+.react-colorful__last-control {
+  border-radius: 0 0 12px 12px !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
